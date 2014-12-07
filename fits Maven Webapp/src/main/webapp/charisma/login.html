@@ -16,7 +16,7 @@
         ===
     -->
     <meta charset="utf-8">
-    <title>Free HTML5 Bootstrap Admin Template</title>
+    <title>小会计系统登录</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
     <meta name="author" content="Muhammad Usman">
@@ -141,7 +141,12 @@
 $(function(){
 	//$(".registerform").Validform();  //就这一行代码！;
 		
-	$(".registerform").Validform();
+	$(".registerform").Validform({
+		beforeSubmit:function(curform){
+			alert(true);	
+		},
+	
+	});
 })
 </script>
 </body>
