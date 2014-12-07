@@ -1,0 +1,59 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app id="WebApp_1417875717219">
+  <display-name>Archetype Created Web Application</display-name>
+  
+  <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:spring-config.xml,classpath:spring-servlet.xml
+        </param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    <!-- Spring配置文件结束 -->
+    
+    
+    <filter>
+        <filter-name>Encoding</filter-name>
+        <filter-class>
+            com.webank.cc.view.MyCharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Encoding</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    
+    
+    <!-- Spring MVC配置开始 -->
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <!-- Spring MVC配置结束-->
+</web-app>
